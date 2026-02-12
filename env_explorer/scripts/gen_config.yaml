@@ -1,0 +1,4 @@
+generation_config:
+  temperature: 0
+  # top_p: 0.9
+  # max_new_tokens: 2048

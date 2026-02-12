@@ -1,0 +1,50 @@
+__pycache__/
+**_updated.**
+tasks/
+**.zip
+syn_data_src/
+tasks_test/
+tasks_claude/
+**.json
+subpro_test.py
+re_execute.py
+*.egg-info
+# task_eval_60/
+# task_eval_90/
+task_var_info_60_abspath/
+task_generator/task_var_info_60/
+*.ipynb
+*.log
+*.err
+*.out
+task_eval_90/
+*_slow.py
+*messy.py
+ignore/
+!env_explorer/data/
+!env_explorer/data/**
+env_explorer/output_bandit/
+env_explorer/output_popqa/prev/
+env_explorer/output_popqa/*
+!env_explorer/output_popqa/*.py
+
+!env_explorer/output_popqa/*.py
+!env_explorer/output_popqa/summary_popqa_result.py
+ExploreReason/EasyR1/_runs/
+# ExploreReason/data_generation_diverse
+# ignore all .DS_Store files under various directories
+.DS_Store
+ExploreReason/wandb/
+ExploreReason/EasyR1/training/train_TACC_logs/
+ExploreReason/log/
+# ignore all .pt files
+*.pt
+!env_explorer/src/train/csv_calibrator/*.pt
+!env_explorer/src/train/csv_calibrator/*.ipynb
+env_explorer/src/train/csv_calibrator/SFT_prior/logs
+env_explorer/src/train/csv_calibrator/prev
+env_explorer/scripts/results_log/
+*_prev/
+task_eval_60/
+task_eval_90/
+task_generator/

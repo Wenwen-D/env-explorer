@@ -1,0 +1,137 @@
+data:
+  train_files: PATH_TO_ExploreReason_train/data_generation_diverse/code_test_explorer_rl_with_prior@train
+  val_files: PATH_TO_ExploreReason_train/data_generation_diverse/code_test_explorer_rl_with_prior@val
+  prompt_key: prompt
+  answer_key: answer
+  environment_key: environment
+  task_id_key: task_id
+  discount_factor_key: discount_factor
+  d_unit_key: d_unit
+  d_code_key: d_code
+  oracle_trace_key: oracle_trace
+  image_key: images
+  video_key: videos
+  image_dir: null
+  # video_fps: 2.0
+  max_prompt_length: 20480
+  max_response_length: 4096
+  rollout_batch_size: 16  # equivalent to verl's data.train_batch_size
+  mini_rollout_batch_size: null # equivalent to verl's data.gen_batch_size
+  val_batch_size: 1024 
+  format_prompt: EasyR1/training/format_prompt/code_test_explore.jinja
+  override_chat_template: null
+  shuffle: true
+  seed: 2025
+  min_pixels: null
+  max_pixels: 1254400
+  filter_overlong_prompts: true
+  use_multi_turn: true
+  multi_turn_data_loader_type: code_test_explorer
+  max_turns: 6
+  single_turn_response_length: 4096
+  is_thinking_model: true
+  enable_thinking: true
+
+algorithm:
+  adv_estimator: grpo
+  disable_kl: false
+  use_kl_loss: true
+  kl_penalty: low_var_kl
+  kl_coef: 1.0e-2
+  online_filtering: false
+  filter_key: overall
+  filter_low: 0.01
+  filter_high: 0.99
+  overlong_filtering: false
+
+worker:
+  actor:
+    global_batch_size: 16 # equivalent to verl's actor.ppo_mini_batch_size # can increase here
+    micro_batch_size_per_device_for_update: 1  # equivalent to verl's actor.ppo_micro_batch_size_per_gpu
+    micro_batch_size_per_device_for_experience: 2 # equivalent to verl's rollout.log_prob_micro_batch_size_per_gpu
+    max_grad_norm: 1.0
+    padding_free: true
+    dynamic_batching: true
+    ulysses_size: 1
+    model:
+      model_path: Qwen/Qwen3-1.7B
+      enable_gradient_checkpointing: true
+      trust_remote_code: false
+      freeze_vision_tower: false
+      enable_lora: false
+      lora_rank: 64
+      lora_alpha: 32
+      lora_dropout: 0.05
+      lora_target_modules: all
+    optim:
+      lr: 1.0e-5
+      weight_decay: 1.0e-2
+      strategy: adamw_bf16
+      lr_warmup_ratio: 0.0
+    fsdp:
+      enable_full_shard: true
+      enable_cpu_offload: false
+      enable_rank0_init: true
+      torch_dtype: bf16
+    offload:
+      offload_params: true
+      offload_optimizer: true
+
+  rollout:
+    name: multi_turn_code_test_explorer
+    n: 4
+    temperature: 1.0
+    top_p: 1.0
+    limit_images: 0
+    gpu_memory_utilization: 0.5
+    enforce_eager: false
+    enable_chunked_prefill: false
+    tensor_parallel_size: 1
+    disable_tqdm: false
+    max_turns: 5
+    num_llm_calls_available: 8
+    single_turn_response_length: 2048
+    crop_size: 300
+    oob_early_stop: false
+    provide_feedback: false
+    feedback_distance_threshold: 20
+    feedback_axis_epsilon: 5
+    all_task_base_path: PATH_TO/code_explorer_data/csv_explorer_twotext
+    enable_thinking: true
+
+  ref:
+    fsdp:
+      enable_full_shard: true
+      enable_cpu_offload: true
+      enable_rank0_init: true
+    offload:
+      offload_params: false
+
+  reward:
+    reward_type: batch
+    reward_function: EasyR1/training/reward_function/explore_code_test_score.py:compute_score
+    skip_special_tokens: false
+    num_cpus: 1
+
+trainer:
+  total_epochs: 1
+  max_steps: null
+  project_name: EasyR1_code_test_explorer
+  experiment_name: explorer_code_test_withprior
+  logger: ["console", "wandb"]
+  nnodes: 1
+  n_gpus_per_node: 1
+  max_try_make_batch: 100
+  val_freq: -1 # -1 to disable validation during training
+  val_before_train: false
+  val_only: false
+  val_generations_to_log: 3
+  save_freq: 50
+  save_limit: 12
+  save_model_only: true
+  save_checkpoint_path: null
+  load_checkpoint_path: null
+  find_last_checkpoint: true
+
+
+    # reward_function: EasyR1/training/reward_function/element_lookup_score_tool_use.py:compute_score
