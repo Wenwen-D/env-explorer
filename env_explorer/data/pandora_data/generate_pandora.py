@@ -1,145 +1,243 @@
-# generate_bandit.py
-# p = 0.2, 0.3, 0.5 priors = [0.2, 0.3, 0.5], labels = [A, B, C]
-# total samples = 10
-# => truth = ...
-'''
-{
-  "task_id": "string",                 // Unique identifier (e.g. "bandit_3bags_r0.7_20251013_001")
-  
-  "env": {
-    "labels": ["A", "B", "C"],         // Arm labels, for readability
-    "priors": {"A": 0.2, "B": 0.3, "C": 0.5}, // True prior probabilities
-    "true_arm": "C"                    // (Optional, for simulation) which arm contains the prize
-  },
-  "game_params":{
-    "discount_factor": 0.7,              // r
-    "time_limit": 10,                    // (Optional) maximum steps allowed
-  },
-  "optimal_policy": {
-    "optimal_action_sequence": ["VERIFY C", "GUESS C"],
-    "strategy_type": "verification_then_guess", // e.g. "always_guess", "verification_then_guess"
-    "first_action": "VERIFY C",           // optimal first move
-    "value_star": 0.49,                   // expected reward under optimal play
-    "decision_boundary_r": [0.625]        // threshold(s) at which optimal policy changes
-  },
-  "evaluation": {
-    "gold_action_sequence": ["VERIFY C", "GUESS C"], // optional canonical optimal sequence
-    "regret_tolerance": 0.05,                        // acceptable regret margin for success
-    "scoring_metric": "expected_return"              // could also be "first_action_accuracy"
-  },
-}
-'''
 import json
 import uuid
-from datetime import datetime
-from zoneinfo import ZoneInfo
-from typing import Dict, List, Optional
+from typing import List, Dict, Union, Optional
+import numpy as np
 
-def best_strategy(priors, r, ground_truth):
-    # if the probability values in priors is [0.2, 0.3, 0.5], then do this:
-    labels_sorted = sorted(priors, key=priors.get, reverse=True)
-    if sorted(list(priors.values())) == [0.2, 0.3, 0.5]:
-        if r < 0.618:
-            return "guess_immediately", [f"GUESS {labels_sorted[0]}"], 0.618
-        else:
-            strategy = "verification_then_guess"
-            Step_1 = f"VERIFY {labels_sorted[0]}"
-            Step_2 = f"VERIFY {labels_sorted[1]},{labels_sorted[2]}"
-            if ground_truth == labels_sorted[0]:
-                return strategy, [f"{Step_1}", f"GUESS {labels_sorted[0]}"], 0.618
-            else:
-                return strategy, [f"{Step_1}", f"{Step_2}", f"GUESS {ground_truth}"], 0.618
-            # return "verification_twice_then_guess", f"VERIFY {ground_truth}"
-    else:
-        raise NotImplementedError("Best strategy not implemented for these priors.")
-    
-def sample_bandit_tasks(
-    priors: Dict[str, float],
-    num_samples: int,
-    r_list: List[float],
-    output_file: str = "pandora_tasks.json",
-):
+
+def solve_three_boxes(priors, gamma, ground_truth):
     """
-    Generate a list of bandit-style decision tasks for model evaluation.
+    priors: dict like {"A": 0.2, "B": 0.3, "C": 0.5}
+    gamma: discount factor in [0, 1]
+    ground_truth: the true prize box (e.g., "C")
+
+    Returns:
+        expected_value: optimal expected value from initial state
+        action_sequence: realized sequence given ground truth
+    """
+
+    items = sorted(priors.items(), key=lambda x: x[1], reverse=True)
+
+    # --- recursive value function (does NOT depend on ground truth) ---
+    def value_function(current_items):
+        if len(current_items) == 1:
+            return 1.0
+
+        W = sum(p for _, p in current_items)
+        label_star, p_star = max(current_items, key=lambda x: x[1])
+        q = p_star / W
+
+        V_guess = q
+
+        remaining = [(l, p) for l, p in current_items if l != label_star]
+        V_fail = value_function(remaining)
+
+        V_verify = gamma * (q + (1 - q) * V_fail)
+
+        return max(V_guess, V_verify)
+
+    # --- recursive rollout using ground truth ---
+    def rollout(current_items):
+        if len(current_items) == 1:
+            label, _ = current_items[0]
+            return [("COMMIT", label)]
+
+        W = sum(p for _, p in current_items)
+        label_star, p_star = max(current_items, key=lambda x: x[1])
+        q = p_star / W
+
+        V_guess = q
+        remaining = [(l, p) for l, p in current_items if l != label_star]
+        V_fail = value_function(remaining)
+        V_verify = gamma * (q + (1 - q) * V_fail)
+
+        if V_guess >= V_verify:
+            return [("COMMIT", label_star)]
+        else:
+            # Verify
+            if label_star == ground_truth:
+                return [("VERIFY", label_star), ("COMMIT", label_star)]
+            else:
+                return [("VERIFY", label_star)] + rollout(remaining)
+
+    expected_value = value_function(items)
+    action_sequence = rollout(items)
+
+    return expected_value, action_sequence
+
+
+def sample_dirichlet_priors(
+    labels: List[str],
+    alpha: Union[float, List[float]],
+    rng_seed: Optional[int] = None,
+) -> Dict[str, float]:
+    """
+    Sample prior probabilities over labels from a Dirichlet distribution.
 
     Args:
-        priors (dict): Mapping from arm labels to prior probabilities.
-                       e.g., {"A": 0.2, "B": 0.3, "C": 0.5}.
-        num_samples (int): Number of base samples (each will be combined with all r in r_list).
-        r_list (list): List of discount factors (e.g., [0.1, 0.2, ..., 0.9]).
-        output_file (str): JSON output file path.
+        labels (List[str]): Arm labels, e.g. ["A", "B", "C"].
+        alpha (float or List[float]): 
+            - If float: symmetric Dirichlet with concentration alpha.
+            - If list: per-arm concentration parameters.
+        rng_seed (int, optional): Random seed for reproducibility.
+
+    Returns:
+        Dict[str, float]: Mapping label -> sampled probability.
     """
 
-    labels = list(priors.keys())
-    probs = [priors[l] for l in labels]
+    if rng_seed is not None:
+        rng = np.random.default_rng(rng_seed)
+    else:
+        rng = np.random.default_rng()
 
-    # --- Compute deterministic counts of true_arms ---
-    total_assigned = 0
-    counts = []
-    for i, p in enumerate(probs):
-        n = int(round(num_samples * p))
-        counts.append(n)
-        total_assigned += n
+    K = len(labels)
 
-    # Adjust rounding errors to make sum == num_samples
-    while total_assigned < num_samples:
-        # Give the remaining slots to the arm with highest residual probability
-        idx = probs.index(max(probs))
-        counts[idx] += 1
-        total_assigned += 1
-    while total_assigned > num_samples:
-        idx = probs.index(min(probs))
-        counts[idx] -= 1
-        total_assigned -= 1
+    # Handle symmetric vs asymmetric Dirichlet
+    if isinstance(alpha, (int, float)):
+        alpha_vec = np.full(K, float(alpha))
+    else:
+        if len(alpha) != K:
+            raise ValueError("Length of alpha list must match number of labels.")
+        alpha_vec = np.array(alpha, dtype=float)
 
-    true_arms_list = []
-    for label, count in zip(labels, counts):
-        true_arms_list.extend([label] * count)
+    if np.any(alpha_vec <= 0):
+        raise ValueError("Dirichlet concentration parameters must be positive.")
 
-    # --- Deterministic ordering ---
-    true_arms_list.sort()
-    print(true_arms_list)
+    probs = rng.dirichlet(alpha_vec)
 
-    now_est = datetime.now(ZoneInfo("America/New_York")).isoformat() # datetime.utcnow().isoformat()
+    sampled_priors = {label: float(round(p, 2)) for label, p in zip(labels, probs)}
+    return sampled_priors
+
+def sample_pandora_tasks(
+    num_tasks: int = 200,
+    labels: List[str] = None,
+    alpha: float = 1.0,
+    output_file: str = "pandora_tasks.json",
+    rng_seed: Optional[int] = None,
+):
+    """
+    Generate Pandora's-box tasks with 3 boxes (A/B/C).
+
+    - Priors are sampled from Dirichlet(alpha) each task.
+    - Ground-truth box is sampled from the *unrounded* Dirichlet probabilities.
+    - gamma is sampled uniformly from {0.0, 0.1, ..., 1.0}.
+    - Output schema matches your bandit JSON example, but without decision_boundary_r.
+    """
+    if labels is None:
+        labels = ["A", "B", "C"]
+    if len(labels) != 3:
+        raise ValueError("This helper is specialized to exactly 3 labels (A/B/C).")
+
+    rng = np.random.default_rng(rng_seed)
+    gamma_choices = [round(x / 10, 1) for x in range(0, 11)]  # 0.0 ... 1.0
+
+    def _rounded_priors_sum_to_one(raw_probs: np.ndarray, ndigits: int = 2) -> Dict[str, float]:
+        """
+        Round to ndigits for JSON readability but force sum==1.0 by adjusting the max entry.
+        """
+        rounded = np.round(raw_probs, ndigits)
+        diff = 1.0 - float(np.sum(rounded))
+        # Add diff to the largest component (stable, avoids negative small probs in practice)
+        idx = int(np.argmax(rounded))
+        rounded[idx] = rounded[idx] + diff
+        # Guard tiny negative due to rounding edge cases
+        rounded = np.clip(rounded, 0.0, 1.0)
+        # Renormalize just in case clipping changed the sum
+        rounded = rounded / float(np.sum(rounded))
+        # Final round for display
+        rounded = np.round(rounded, ndigits)
+        # Fix any last rounding drift
+        diff2 = 1.0 - float(np.sum(rounded))
+        idx2 = int(np.argmax(rounded))
+        rounded[idx2] = rounded[idx2] + diff2
+        return {lab: float(p) for lab, p in zip(labels, rounded)}
+
     tasks = []
 
-    for i, true_arm in enumerate(true_arms_list):
-        for r in r_list:
-            task_uuid = str(uuid.uuid4())[:8]
-            task_id = f"bandit_{i:04d}_{true_arm}_r{r}".replace(".", "")
+    for i in range(num_tasks):
+        # --- Sample Dirichlet priors (raw for sampling GT) ---
+        raw_probs = rng.dirichlet(np.full(len(labels), float(alpha)))
 
-            strategy_type, opt_strategy, r_boundary = best_strategy(priors, r, true_arm)
-            task = {
-                "task_id": f"{task_id}_{task_uuid}",
-                "env": {
-                    "num_arms": len(labels),
-                    "labels": labels,
-                    "priors": priors,
-                    "true_arm": true_arm
-                },
-                "discount_factor": r,
-                "optimal_policy": {
-                    "strategy_type": strategy_type,
-                    "optimal_strategy": opt_strategy,
-                    "decision_boundary_r": r_boundary,
-                },
-            }
+        # Store a rounded-but-summing-to-1 version in JSON
+        priors = _rounded_priors_sum_to_one(raw_probs, ndigits=2)
 
-            tasks.append(task)
+        # Sample ground truth from the *raw* probs (more faithful)
+        true_arm = rng.choice(labels, p=raw_probs)
+
+        # Sample gamma with one decimal place
+        gamma = float(rng.choice(gamma_choices))
+
+        # Oracle rollout conditioned on ground truth
+        _, action_seq = solve_three_boxes(priors=priors, gamma=gamma, ground_truth=true_arm)  # :contentReference[oaicite:1]{index=1}
+
+        # Convert to your string format: COMMIT -> GUESS
+        optimal_strategy = []
+        for act, lab in action_seq:
+            if act == "VERIFY":
+                optimal_strategy.append(f"VERIFY {lab}")
+            elif act == "COMMIT":
+                optimal_strategy.append(f"GUESS {lab}")
+            else:
+                raise ValueError(f"Unknown action {act}")
+
+        strategy_type = "guess_immediately" if optimal_strategy[0].startswith("GUESS") else "verification_then_guess"
+
+        task_uuid = str(uuid.uuid4())[:8]
+        # mimic your bandit naming convention (replace '.' so it's filesystem-friendly)
+        task_id_base = f"pandora_{i:04d}_{true_arm}_g{gamma}".replace(".", "")
+        task_id = f"{task_id_base}_{task_uuid}"
+
+        task = {
+            "task_id": task_id,
+            "env": {
+                "num_arms": len(labels),
+                "labels": labels,
+                "priors": priors,
+                "true_arm": true_arm,
+            },
+            "discount_factor": gamma,
+            "optimal_policy": {
+                "strategy_type": strategy_type,
+                "optimal_strategy": optimal_strategy,
+            },
+        }
+        tasks.append(task)
 
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump(tasks, f, indent=2, ensure_ascii=False)
 
     print(f"✅ Generated {len(tasks)} tasks and saved to {output_file}")
-    print(f" - # arms: {len(labels)}")
-    print(f" - priors: {priors}")
-    print(f" - count per arm: {dict(zip(labels, counts))}")
-    print(f" - discount factors: {r_list}")
-    print(f" - timestamp (EST): {now_est}")
+    print(f" - labels: {labels}")
+    print(f" - alpha: {alpha}")
+    print(f" - gamma choices: {gamma_choices}")
+# for _ in range(5):
+#     priors = sample_dirichlet_priors(labels=["A", "B", "C"], alpha=0.5)
+#     max_label = max(priors, key=priors.get)
+#     print(f'alpha=0.5 sampled priors: {priors}, max label: {max_label}')
+
+# for _ in range(5):
+#     priors = sample_dirichlet_priors(labels=["A", "B", "C"], alpha=1.0)
+#     max_label = max(priors, key=priors.get)
+#     print(f'alpha=1.0 sampled priors: {priors}, max label: {max_label}')
+
+# for _ in range(5):
+#     priors = sample_dirichlet_priors(labels=["A", "B", "C"], alpha=1.5)
+#     max_label = max(priors, key=priors.get)
+#     print(f'alpha=1.5 sampled priors: {priors}, max label: {max_label}')
+# priors = {"A": 0.2, "B": 0.3, "C": 0.5}
+
+# for gamma in [0.61, 0.617, 0.618, 0.619,0.62, 0.9]:
+#     for gt in ["A", "B", "C"]:
+#         print(f"Gamma: {gamma}, Ground Truth: {gt}")
+#         value, actions = solve_three_boxes(priors, gamma, gt)
+#         print("Expected value:", value)
+#         print("Action sequence:", actions)
 
 
-# Example usage
 if __name__ == "__main__":
-    priors = {"A": 0.2, "B": 0.3, "C": 0.5}
-    r_values = [round(x / 10, 1) for x in range(0, 11)]  # [0.0, 0.1, ..., 1.0]
-    sample_bandit_tasks(priors=priors, num_samples=10, r_list=r_values)
+    sample_pandora_tasks(
+        num_tasks=200,
+        labels=["A", "B", "C"],
+        alpha=1.2,
+        output_file="pandora_tasks_dirichlet.json",
+        rng_seed=42,
+    )

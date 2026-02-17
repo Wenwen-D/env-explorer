@@ -1,0 +1,2445 @@
+[
+  {
+    "task_id": "pandora_0000_A_g09_1f851330",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.3,
+        "B": 0.45,
+        "C": 0.25
+      },
+      "true_arm": "A"
+    },
+    "discount_factor": 0.9,
+    "optimal_policy": {
+      "strategy_type": "verification_then_guess",
+      "optimal_strategy": [
+        "VERIFY B",
+        "VERIFY A",
+        "GUESS A"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0001_B_g04_c8ed8f65",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.46,
+        "B": 0.22,
+        "C": 0.32
+      },
+      "true_arm": "B"
+    },
+    "discount_factor": 0.4,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS A"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0002_C_g07_591ac818",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.17,
+        "B": 0.57,
+        "C": 0.26
+      },
+      "true_arm": "C"
+    },
+    "discount_factor": 0.7,
+    "optimal_policy": {
+      "strategy_type": "verification_then_guess",
+      "optimal_strategy": [
+        "VERIFY B",
+        "VERIFY C",
+        "GUESS C"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0003_C_g08_831fda3b",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.18,
+        "B": 0.4,
+        "C": 0.42
+      },
+      "true_arm": "C"
+    },
+    "discount_factor": 0.8,
+    "optimal_policy": {
+      "strategy_type": "verification_then_guess",
+      "optimal_strategy": [
+        "VERIFY C",
+        "GUESS C"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0004_B_g06_0edbe8b3",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.17,
+        "B": 0.56,
+        "C": 0.27
+      },
+      "true_arm": "B"
+    },
+    "discount_factor": 0.6,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS B"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0005_A_g07_e5ae5cc8",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.76,
+        "B": 0.07,
+        "C": 0.17
+      },
+      "true_arm": "A"
+    },
+    "discount_factor": 0.7,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS A"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0006_B_g05_9469f1f1",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.35,
+        "B": 0.35,
+        "C": 0.3
+      },
+      "true_arm": "B"
+    },
+    "discount_factor": 0.5,
+    "optimal_policy": {
+      "strategy_type": "verification_then_guess",
+      "optimal_strategy": [
+        "VERIFY A",
+        "GUESS B"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0007_C_g07_60173a0d",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.15,
+        "B": 0.1,
+        "C": 0.75
+      },
+      "true_arm": "C"
+    },
+    "discount_factor": 0.7,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS C"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0008_B_g03_10ef6467",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.02,
+        "B": 0.37,
+        "C": 0.61
+      },
+      "true_arm": "B"
+    },
+    "discount_factor": 0.3,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS C"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0009_A_g04_2278b9c1",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.8300000000000001,
+        "B": 0.06,
+        "C": 0.11
+      },
+      "true_arm": "A"
+    },
+    "discount_factor": 0.4,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS A"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0010_A_g03_10a270ac",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.51,
+        "B": 0.31,
+        "C": 0.18
+      },
+      "true_arm": "A"
+    },
+    "discount_factor": 0.3,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS A"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0011_C_g00_730ca520",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.2,
+        "B": 0.49,
+        "C": 0.31
+      },
+      "true_arm": "C"
+    },
+    "discount_factor": 0.0,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS B"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0012_A_g03_d9fe816f",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.74,
+        "B": 0.24,
+        "C": 0.02
+      },
+      "true_arm": "A"
+    },
+    "discount_factor": 0.3,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS A"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0013_A_g10_d7a69822",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.53,
+        "B": 0.23,
+        "C": 0.24
+      },
+      "true_arm": "A"
+    },
+    "discount_factor": 1.0,
+    "optimal_policy": {
+      "strategy_type": "verification_then_guess",
+      "optimal_strategy": [
+        "VERIFY A",
+        "GUESS A"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0014_B_g06_9026a17e",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.52,
+        "B": 0.44,
+        "C": 0.04
+      },
+      "true_arm": "B"
+    },
+    "discount_factor": 0.6,
+    "optimal_policy": {
+      "strategy_type": "verification_then_guess",
+      "optimal_strategy": [
+        "VERIFY A",
+        "GUESS B"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0015_C_g01_2e019d5e",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.07,
+        "B": 0.32,
+        "C": 0.61
+      },
+      "true_arm": "C"
+    },
+    "discount_factor": 0.1,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS C"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0016_B_g01_da9664d6",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.07,
+        "B": 0.34,
+        "C": 0.59
+      },
+      "true_arm": "B"
+    },
+    "discount_factor": 0.1,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS C"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0017_C_g06_d6c9d453",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.16,
+        "B": 0.22,
+        "C": 0.62
+      },
+      "true_arm": "C"
+    },
+    "discount_factor": 0.6,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS C"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0018_B_g10_a67ee576",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.09,
+        "B": 0.81,
+        "C": 0.1
+      },
+      "true_arm": "B"
+    },
+    "discount_factor": 1.0,
+    "optimal_policy": {
+      "strategy_type": "verification_then_guess",
+      "optimal_strategy": [
+        "VERIFY B",
+        "GUESS B"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0019_B_g03_c6490bc5",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.23,
+        "B": 0.32,
+        "C": 0.45
+      },
+      "true_arm": "B"
+    },
+    "discount_factor": 0.3,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS C"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0020_C_g10_c71f7a94",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.03,
+        "B": 0.44,
+        "C": 0.53
+      },
+      "true_arm": "C"
+    },
+    "discount_factor": 1.0,
+    "optimal_policy": {
+      "strategy_type": "verification_then_guess",
+      "optimal_strategy": [
+        "VERIFY C",
+        "GUESS C"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0021_C_g02_3e375128",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.04,
+        "B": 0.68,
+        "C": 0.28
+      },
+      "true_arm": "C"
+    },
+    "discount_factor": 0.2,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS B"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0022_B_g10_7bcd5868",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.37,
+        "B": 0.24,
+        "C": 0.39
+      },
+      "true_arm": "B"
+    },
+    "discount_factor": 1.0,
+    "optimal_policy": {
+      "strategy_type": "verification_then_guess",
+      "optimal_strategy": [
+        "VERIFY C",
+        "VERIFY A",
+        "GUESS B"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0023_C_g10_c824b92b",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.32,
+        "B": 0.32,
+        "C": 0.36
+      },
+      "true_arm": "C"
+    },
+    "discount_factor": 1.0,
+    "optimal_policy": {
+      "strategy_type": "verification_then_guess",
+      "optimal_strategy": [
+        "VERIFY C",
+        "GUESS C"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0024_B_g00_cefec3e8",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.18,
+        "B": 0.46,
+        "C": 0.36
+      },
+      "true_arm": "B"
+    },
+    "discount_factor": 0.0,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS B"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0025_A_g01_33613da1",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.83,
+        "B": 0.13,
+        "C": 0.04
+      },
+      "true_arm": "A"
+    },
+    "discount_factor": 0.1,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS A"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0026_C_g10_9964b120",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.13,
+        "B": 0.17,
+        "C": 0.7
+      },
+      "true_arm": "C"
+    },
+    "discount_factor": 1.0,
+    "optimal_policy": {
+      "strategy_type": "verification_then_guess",
+      "optimal_strategy": [
+        "VERIFY C",
+        "GUESS C"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0027_C_g01_15515585",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.52,
+        "B": 0.1,
+        "C": 0.38
+      },
+      "true_arm": "C"
+    },
+    "discount_factor": 0.1,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS A"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0028_B_g03_68299e40",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.31,
+        "B": 0.48,
+        "C": 0.21
+      },
+      "true_arm": "B"
+    },
+    "discount_factor": 0.3,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS B"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0029_A_g10_8c3dee34",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.3,
+        "B": 0.28,
+        "C": 0.42
+      },
+      "true_arm": "A"
+    },
+    "discount_factor": 1.0,
+    "optimal_policy": {
+      "strategy_type": "verification_then_guess",
+      "optimal_strategy": [
+        "VERIFY C",
+        "VERIFY A",
+        "GUESS A"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0030_A_g03_7ea1214d",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.51,
+        "B": 0.29,
+        "C": 0.2
+      },
+      "true_arm": "A"
+    },
+    "discount_factor": 0.3,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS A"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0031_B_g09_0cec4acf",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.25,
+        "B": 0.46,
+        "C": 0.29
+      },
+      "true_arm": "B"
+    },
+    "discount_factor": 0.9,
+    "optimal_policy": {
+      "strategy_type": "verification_then_guess",
+      "optimal_strategy": [
+        "VERIFY B",
+        "GUESS B"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0032_B_g10_f6c0590e",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.78,
+        "B": 0.09,
+        "C": 0.13
+      },
+      "true_arm": "B"
+    },
+    "discount_factor": 1.0,
+    "optimal_policy": {
+      "strategy_type": "verification_then_guess",
+      "optimal_strategy": [
+        "VERIFY A",
+        "VERIFY C",
+        "GUESS B"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0033_C_g01_dd9bb80a",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.1,
+        "B": 0.76,
+        "C": 0.14
+      },
+      "true_arm": "C"
+    },
+    "discount_factor": 0.1,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS B"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0034_A_g09_186654c9",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.49,
+        "B": 0.27,
+        "C": 0.24
+      },
+      "true_arm": "A"
+    },
+    "discount_factor": 0.9,
+    "optimal_policy": {
+      "strategy_type": "verification_then_guess",
+      "optimal_strategy": [
+        "VERIFY A",
+        "GUESS A"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0035_C_g00_307fe52c",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.41,
+        "B": 0.31,
+        "C": 0.28
+      },
+      "true_arm": "C"
+    },
+    "discount_factor": 0.0,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS A"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0036_A_g00_602c1a3d",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.1,
+        "B": 0.61,
+        "C": 0.29
+      },
+      "true_arm": "A"
+    },
+    "discount_factor": 0.0,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS B"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0037_C_g04_0c69679d",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.22,
+        "B": 0.5,
+        "C": 0.28
+      },
+      "true_arm": "C"
+    },
+    "discount_factor": 0.4,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS B"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0038_A_g09_d9811a84",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.49,
+        "B": 0.18,
+        "C": 0.33
+      },
+      "true_arm": "A"
+    },
+    "discount_factor": 0.9,
+    "optimal_policy": {
+      "strategy_type": "verification_then_guess",
+      "optimal_strategy": [
+        "VERIFY A",
+        "GUESS A"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0039_B_g05_a24595e0",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.39,
+        "B": 0.39,
+        "C": 0.22
+      },
+      "true_arm": "B"
+    },
+    "discount_factor": 0.5,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS A"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0040_A_g08_05266773",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.5700000000000001,
+        "B": 0.3,
+        "C": 0.13
+      },
+      "true_arm": "A"
+    },
+    "discount_factor": 0.8,
+    "optimal_policy": {
+      "strategy_type": "verification_then_guess",
+      "optimal_strategy": [
+        "VERIFY A",
+        "GUESS A"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0041_C_g10_18dbb01d",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.2,
+        "B": 0.32,
+        "C": 0.48
+      },
+      "true_arm": "C"
+    },
+    "discount_factor": 1.0,
+    "optimal_policy": {
+      "strategy_type": "verification_then_guess",
+      "optimal_strategy": [
+        "VERIFY C",
+        "GUESS C"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0042_C_g10_db26b7cd",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.53,
+        "B": 0.32,
+        "C": 0.15
+      },
+      "true_arm": "C"
+    },
+    "discount_factor": 1.0,
+    "optimal_policy": {
+      "strategy_type": "verification_then_guess",
+      "optimal_strategy": [
+        "VERIFY A",
+        "VERIFY B",
+        "GUESS C"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0043_B_g01_8775b8c7",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.38,
+        "B": 0.61,
+        "C": 0.01
+      },
+      "true_arm": "B"
+    },
+    "discount_factor": 0.1,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS B"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0044_B_g00_f9af53a3",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.2,
+        "B": 0.7000000000000001,
+        "C": 0.1
+      },
+      "true_arm": "B"
+    },
+    "discount_factor": 0.0,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS B"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0045_C_g01_4e390a8e",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.3,
+        "B": 0.4,
+        "C": 0.3
+      },
+      "true_arm": "C"
+    },
+    "discount_factor": 0.1,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS B"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0046_A_g08_02481064",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.87,
+        "B": 0.11,
+        "C": 0.02
+      },
+      "true_arm": "A"
+    },
+    "discount_factor": 0.8,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS A"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0047_B_g04_3077600e",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.11,
+        "B": 0.6,
+        "C": 0.29
+      },
+      "true_arm": "B"
+    },
+    "discount_factor": 0.4,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS B"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0048_B_g01_66073e70",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.33,
+        "B": 0.5800000000000001,
+        "C": 0.09
+      },
+      "true_arm": "B"
+    },
+    "discount_factor": 0.1,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS B"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0049_C_g06_a7ba24da",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.06,
+        "B": 0.38,
+        "C": 0.56
+      },
+      "true_arm": "C"
+    },
+    "discount_factor": 0.6,
+    "optimal_policy": {
+      "strategy_type": "verification_then_guess",
+      "optimal_strategy": [
+        "VERIFY C",
+        "GUESS C"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0050_A_g01_b9e0babb",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.27,
+        "B": 0.12,
+        "C": 0.61
+      },
+      "true_arm": "A"
+    },
+    "discount_factor": 0.1,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS C"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0051_C_g04_77aed55f",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.05,
+        "B": 0.05,
+        "C": 0.9
+      },
+      "true_arm": "C"
+    },
+    "discount_factor": 0.4,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS C"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0052_C_g09_a0207eda",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.28,
+        "B": 0.42,
+        "C": 0.3
+      },
+      "true_arm": "C"
+    },
+    "discount_factor": 0.9,
+    "optimal_policy": {
+      "strategy_type": "verification_then_guess",
+      "optimal_strategy": [
+        "VERIFY B",
+        "VERIFY C",
+        "GUESS C"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0053_A_g00_ff25f275",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.18,
+        "B": 0.54,
+        "C": 0.28
+      },
+      "true_arm": "A"
+    },
+    "discount_factor": 0.0,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS B"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0054_C_g01_aa43adf7",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.62,
+        "B": 0.07,
+        "C": 0.31
+      },
+      "true_arm": "C"
+    },
+    "discount_factor": 0.1,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS A"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0055_B_g08_04baacfd",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.59,
+        "B": 0.21,
+        "C": 0.2
+      },
+      "true_arm": "B"
+    },
+    "discount_factor": 0.8,
+    "optimal_policy": {
+      "strategy_type": "verification_then_guess",
+      "optimal_strategy": [
+        "VERIFY A",
+        "VERIFY B",
+        "GUESS B"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0056_C_g08_f36f34d3",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.31,
+        "B": 0.09,
+        "C": 0.6
+      },
+      "true_arm": "C"
+    },
+    "discount_factor": 0.8,
+    "optimal_policy": {
+      "strategy_type": "verification_then_guess",
+      "optimal_strategy": [
+        "VERIFY C",
+        "GUESS C"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0057_A_g06_abc5da70",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.47,
+        "B": 0.52,
+        "C": 0.01
+      },
+      "true_arm": "A"
+    },
+    "discount_factor": 0.6,
+    "optimal_policy": {
+      "strategy_type": "verification_then_guess",
+      "optimal_strategy": [
+        "VERIFY B",
+        "GUESS A"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0058_A_g02_4eab45e0",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.3,
+        "B": 0.25,
+        "C": 0.45
+      },
+      "true_arm": "A"
+    },
+    "discount_factor": 0.2,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS C"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0059_B_g10_f84cede9",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.11,
+        "B": 0.44,
+        "C": 0.45
+      },
+      "true_arm": "B"
+    },
+    "discount_factor": 1.0,
+    "optimal_policy": {
+      "strategy_type": "verification_then_guess",
+      "optimal_strategy": [
+        "VERIFY C",
+        "VERIFY B",
+        "GUESS B"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0060_B_g08_0971d383",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.18,
+        "B": 0.67,
+        "C": 0.15
+      },
+      "true_arm": "B"
+    },
+    "discount_factor": 0.8,
+    "optimal_policy": {
+      "strategy_type": "verification_then_guess",
+      "optimal_strategy": [
+        "VERIFY B",
+        "GUESS B"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0061_A_g06_1305082f",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.73,
+        "B": 0.26,
+        "C": 0.01
+      },
+      "true_arm": "A"
+    },
+    "discount_factor": 0.6,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS A"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0062_B_g06_9572665a",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.15,
+        "B": 0.56,
+        "C": 0.29
+      },
+      "true_arm": "B"
+    },
+    "discount_factor": 0.6,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS B"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0063_B_g07_b6bb2e1c",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.33,
+        "B": 0.49,
+        "C": 0.18
+      },
+      "true_arm": "B"
+    },
+    "discount_factor": 0.7,
+    "optimal_policy": {
+      "strategy_type": "verification_then_guess",
+      "optimal_strategy": [
+        "VERIFY B",
+        "GUESS B"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0064_A_g05_0d6df740",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.5700000000000001,
+        "B": 0.29,
+        "C": 0.14
+      },
+      "true_arm": "A"
+    },
+    "discount_factor": 0.5,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS A"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0065_A_g09_00937640",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.39,
+        "B": 0.29,
+        "C": 0.32
+      },
+      "true_arm": "A"
+    },
+    "discount_factor": 0.9,
+    "optimal_policy": {
+      "strategy_type": "verification_then_guess",
+      "optimal_strategy": [
+        "VERIFY A",
+        "GUESS A"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0066_B_g05_2f0530c8",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.01,
+        "B": 0.88,
+        "C": 0.11
+      },
+      "true_arm": "B"
+    },
+    "discount_factor": 0.5,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS B"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0067_A_g10_c43b3941",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.92,
+        "B": 0.07,
+        "C": 0.01
+      },
+      "true_arm": "A"
+    },
+    "discount_factor": 1.0,
+    "optimal_policy": {
+      "strategy_type": "verification_then_guess",
+      "optimal_strategy": [
+        "VERIFY A",
+        "GUESS A"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0068_C_g10_3d82d7a9",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.33,
+        "B": 0.51,
+        "C": 0.16
+      },
+      "true_arm": "C"
+    },
+    "discount_factor": 1.0,
+    "optimal_policy": {
+      "strategy_type": "verification_then_guess",
+      "optimal_strategy": [
+        "VERIFY B",
+        "VERIFY A",
+        "GUESS C"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0069_C_g06_1edcb4b4",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.18,
+        "B": 0.4700000000000001,
+        "C": 0.35
+      },
+      "true_arm": "C"
+    },
+    "discount_factor": 0.6,
+    "optimal_policy": {
+      "strategy_type": "verification_then_guess",
+      "optimal_strategy": [
+        "VERIFY B",
+        "GUESS C"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0070_A_g02_2216b6cc",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.51,
+        "B": 0.26,
+        "C": 0.23
+      },
+      "true_arm": "A"
+    },
+    "discount_factor": 0.2,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS A"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0071_C_g03_046b1bfe",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.29,
+        "B": 0.0,
+        "C": 0.71
+      },
+      "true_arm": "C"
+    },
+    "discount_factor": 0.3,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS C"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0072_C_g05_11e98cd6",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.28,
+        "B": 0.09,
+        "C": 0.63
+      },
+      "true_arm": "C"
+    },
+    "discount_factor": 0.5,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS C"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0073_A_g08_4bb0a2ed",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.84,
+        "B": 0.12,
+        "C": 0.04
+      },
+      "true_arm": "A"
+    },
+    "discount_factor": 0.8,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS A"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0074_B_g03_5d48ab68",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.22,
+        "B": 0.37,
+        "C": 0.41
+      },
+      "true_arm": "B"
+    },
+    "discount_factor": 0.3,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS C"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0075_A_g02_95793869",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.31,
+        "B": 0.65,
+        "C": 0.04
+      },
+      "true_arm": "A"
+    },
+    "discount_factor": 0.2,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS B"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0076_C_g05_855e5beb",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.09,
+        "B": 0.03,
+        "C": 0.88
+      },
+      "true_arm": "C"
+    },
+    "discount_factor": 0.5,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS C"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0077_C_g07_d5251e45",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.04,
+        "B": 0.04,
+        "C": 0.92
+      },
+      "true_arm": "C"
+    },
+    "discount_factor": 0.7,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS C"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0078_C_g00_c4828f90",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.21,
+        "B": 0.03,
+        "C": 0.76
+      },
+      "true_arm": "C"
+    },
+    "discount_factor": 0.0,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS C"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0079_C_g01_afb12639",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.08,
+        "B": 0.27,
+        "C": 0.65
+      },
+      "true_arm": "C"
+    },
+    "discount_factor": 0.1,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS C"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0080_A_g00_e36f593f",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.19,
+        "B": 0.17,
+        "C": 0.64
+      },
+      "true_arm": "A"
+    },
+    "discount_factor": 0.0,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS C"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0081_C_g04_4380e464",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.38,
+        "B": 0.28,
+        "C": 0.34
+      },
+      "true_arm": "C"
+    },
+    "discount_factor": 0.4,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS A"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0082_A_g02_4a1224b4",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.64,
+        "B": 0.16,
+        "C": 0.2
+      },
+      "true_arm": "A"
+    },
+    "discount_factor": 0.2,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS A"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0083_A_g07_c3cfd7be",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.65,
+        "B": 0.25,
+        "C": 0.1
+      },
+      "true_arm": "A"
+    },
+    "discount_factor": 0.7,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS A"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0084_A_g07_59a24af8",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.91,
+        "B": 0.0,
+        "C": 0.09
+      },
+      "true_arm": "A"
+    },
+    "discount_factor": 0.7,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS A"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0085_C_g00_965246fe",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.45,
+        "B": 0.32,
+        "C": 0.23
+      },
+      "true_arm": "C"
+    },
+    "discount_factor": 0.0,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS A"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0086_C_g00_41f431e7",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.03,
+        "B": 0.2,
+        "C": 0.77
+      },
+      "true_arm": "C"
+    },
+    "discount_factor": 0.0,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS C"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0087_C_g00_fe7e7ba5",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.35,
+        "B": 0.06,
+        "C": 0.59
+      },
+      "true_arm": "C"
+    },
+    "discount_factor": 0.0,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS C"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0088_B_g03_0195d314",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.58,
+        "B": 0.39,
+        "C": 0.03
+      },
+      "true_arm": "B"
+    },
+    "discount_factor": 0.3,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS A"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0089_A_g05_c4190d32",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.46,
+        "B": 0.05,
+        "C": 0.49
+      },
+      "true_arm": "A"
+    },
+    "discount_factor": 0.5,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS C"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0090_C_g02_f753ce0a",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.36,
+        "B": 0.2,
+        "C": 0.44
+      },
+      "true_arm": "C"
+    },
+    "discount_factor": 0.2,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS C"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0091_C_g08_2b70bc4e",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.12,
+        "B": 0.12,
+        "C": 0.76
+      },
+      "true_arm": "C"
+    },
+    "discount_factor": 0.8,
+    "optimal_policy": {
+      "strategy_type": "verification_then_guess",
+      "optimal_strategy": [
+        "VERIFY C",
+        "GUESS C"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0092_A_g06_5fb0856c",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.33,
+        "B": 0.5900000000000001,
+        "C": 0.08
+      },
+      "true_arm": "A"
+    },
+    "discount_factor": 0.6,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS B"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0093_A_g00_b93f874d",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.09,
+        "B": 0.8300000000000001,
+        "C": 0.08
+      },
+      "true_arm": "A"
+    },
+    "discount_factor": 0.0,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS B"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0094_B_g04_372f5c38",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.07,
+        "B": 0.45,
+        "C": 0.48
+      },
+      "true_arm": "B"
+    },
+    "discount_factor": 0.4,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS C"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0095_C_g09_0da4bf04",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.32,
+        "B": 0.06,
+        "C": 0.62
+      },
+      "true_arm": "C"
+    },
+    "discount_factor": 0.9,
+    "optimal_policy": {
+      "strategy_type": "verification_then_guess",
+      "optimal_strategy": [
+        "VERIFY C",
+        "GUESS C"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0096_A_g05_2d3fbaec",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.36,
+        "B": 0.12,
+        "C": 0.52
+      },
+      "true_arm": "A"
+    },
+    "discount_factor": 0.5,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS C"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0097_A_g05_90d3de11",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.34,
+        "B": 0.37,
+        "C": 0.29
+      },
+      "true_arm": "A"
+    },
+    "discount_factor": 0.5,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS B"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0098_C_g05_2a48684f",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.42,
+        "B": 0.0,
+        "C": 0.58
+      },
+      "true_arm": "C"
+    },
+    "discount_factor": 0.5,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS C"
+      ]
+    }
+  },
+  {
+    "task_id": "pandora_0099_B_g00_9591bcba",
+    "env": {
+      "num_arms": 3,
+      "labels": [
+        "A",
+        "B",
+        "C"
+      ],
+      "priors": {
+        "A": 0.55,
+        "B": 0.38,
+        "C": 0.07
+      },
+      "true_arm": "B"
+    },
+    "discount_factor": 0.0,
+    "optimal_policy": {
+      "strategy_type": "guess_immediately",
+      "optimal_strategy": [
+        "GUESS A"
+      ]
+    }
+  }
+]
