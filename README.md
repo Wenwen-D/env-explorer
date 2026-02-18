@@ -1,11 +1,15 @@
-# Inducing Pareto-Optimal Environment Exploration for LLM Agents via Reasoning
+# Calibrate-Then-Act: Cost-Aware Exploration in LLM Agents
 
 Please check out our work [here](https://github.com/Wenwen-D/env-explore) 
 
 
 
 ## Abstract
->LLMs are increasingly being used for complex problems which are not necessarily resolved in a single response, but require interacting with an environment to acquire information. In these scenarios, LLMs must reason about inherent cost-uncertainty tradeoffs in when to stop exploring and commit to an answer. For instance, on a programming task, an LLM should test a generated code snippet if it is less certain about the correctness of that code; the cost of writing a test ("exploration") is nonzero, but typically lower than the cost of making a mistake. In this work, we show that we can induce LLMs to explicitly reason about balancing these uncertainty-cost tradeoffs, then perform Pareto-optimal information seeking. We formalize multiple tasks, including information retrieval and coding, as sequential decision-making problems under uncertainty. Each problem has latent information that can be reasoned about via a prior which is passed to the LLM agent. By feeding the LLM this additional context, LLMs are able to reason in fundamentally different ways about cost-uncertainty tradeoffs and tackle challenging interaction settings. This improvement is preserved even when performing RL on a test set. Our findings suggest that making cost-benefit tradeoffs explicit can help agents discover more optimal decision-making strategies.
+>LLMs are increasingly being used for complex problems which are not necessarily resolved in a single response, but require interacting with an environment to acquire information. In these scenarios, LLMs must reason about inherent cost-uncertainty tradeoffs in when to stop exploring and commit to an answer. For instance, on a programming task, an LLM should test a generated code snippet if it is uncertain about the correctness of that code; the cost of writing a test is nonzero, but typically lower than the cost of making a mistake. In this work, we show that we can induce LLMs to explicitly reason about balancing these cost-uncertainty tradeoffs, then perform more optimal environment exploration. 
+We formalize multiple tasks, including information retrieval and coding, as sequential decision-making problems under uncertainty.
+Each problem has latent environment state that can be reasoned about via a prior which is passed to the LLM agent. We introduce a framework called Calibrate-Then-Act, (CTA), where we feed the LLM this additional context to enable it to act more optimally. 
+This improvement is preserved even under RL training of both the baseline and CTA. Our results on information-seeking QA and on a simplified coding task show that making cost-benefit tradeoffs explicit with CTA can help agents discover more optimal decision-making strategies. 
+
 
 <p align="center">
     <img src="./images/intro.png" width="360">
@@ -14,8 +18,8 @@ Please check out our work [here](https://github.com/Wenwen-D/env-explore)
 
 ## Table of Contents
 1. [Installation](#installation)
-2. [Tasks and Data](#data)
-3. [Evaluation and Training](#train-and-evaluate)
+2. [Tasks and Data](#tasks-and-data)
+3. [Evaluation and Training](#evaluation-and-training)
 4. [How to Cite](#how-to-cite)
 ## Installation
 Create virtual environment and install the codebase and relevant packages:
