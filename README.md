@@ -17,10 +17,13 @@ This improvement is preserved even under RL training of both the baseline and CT
 
 
 ## Table of Contents
-1. [Installation](#installation)
-2. [Tasks and Data](#tasks-and-data)
-3. [Evaluation and Training](#evaluation-and-training)
-4. [How to Cite](#how-to-cite)
+- [Calibrate-Then-Act: Cost-Aware Exploration in LLM Agents](#calibrate-then-act-cost-aware-exploration-in-llm-agents)
+  - [Abstract](#abstract)
+  - [Table of Contents](#table-of-contents)
+  - [Installation](#installation)
+  - [Tasks and Data](#tasks-and-data)
+  - [Evaluation and Training](#evaluation-and-training)
+  - [How to Cite](#how-to-cite)
 ## Installation
 Create virtual environment and install the codebase and relevant packages:
 ```
@@ -46,7 +49,7 @@ The data for each task and code used to generate them are located under [`./env_
 
 ## Evaluation and Training
 <p align="center">
-    <img src="./images/calibrator.png" width="720">
+    <img src="./images/CTA.png" width="720">
 </p>
 
 The scripts for running evaluation on the tasks are at [`./env_explorer/scripts`](./env_explorer/scripts)
@@ -96,5 +99,5 @@ bash train_code_test.sh # RL-EP method
   <img src="./images/code_line.png" style="height: 250px;" />
 </div>
 
-### How to Cite
+## How to Cite
 If you found our work useful, please consider citing our work.
