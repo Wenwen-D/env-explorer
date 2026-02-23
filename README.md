@@ -1,6 +1,6 @@
 # Calibrate-Then-Act: Cost-Aware Exploration in LLM Agents
 
-Please check out our work [here](https://github.com/Wenwen-D/env-explore) 
+Please check out our work [here](https://arxiv.org/abs/2602.16699) 
 
 
 
@@ -101,3 +101,14 @@ bash train_code_test.sh # RL-EP method
 
 ## How to Cite
 If you found our work useful, please consider citing our work.
+```bibtex
+@misc{ding2026cta,
+      title={Calibrate-Then-Act: Cost-Aware Exploration in LLM Agents}, 
+      author={Wenxuan Ding and Nicholas Tomlin and Greg Durrett},
+      year={2026},
+      eprint={2602.16699},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2602.16699}, 
+}
+```
